@@ -33,6 +33,35 @@
 
                     <h5 id="mensaje" class="text-primary mt-3"></h5>
 
+                    <hr>
+
+                    <h4>Guardar puntaje</h4>
+
+                    <div class="input-group mb-3">
+
+                        <input
+                            type="text"
+                            id="nombreJugador"
+                            class="form-control"
+                            maxlength="15"
+                            placeholder="Ingresá tu nombre">
+
+                        <button
+                            class="btn btn-success"
+                            onclick="guardarRanking()">
+
+                            Guardar
+
+                        </button>
+
+                    </div>
+
+                    <hr>
+
+                    <h4>🏆 Ranking</h4>
+
+                    <div id="ranking"></div>
+
                     <div class="d-grid gap-2 mt-4">
 
                         <a href="categorias.html" class="btn btn-primary">
@@ -57,6 +86,10 @@
 
 <script src="js/questions.js"></script>
 <script src="js/app.js"></script>
+
+<script>
+    mostrarRanking();
+</script>
 
 </body>
 

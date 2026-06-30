@@ -55,3 +55,73 @@ if(window.location.pathname.includes("resultado.html")){
     document.getElementById("mensaje").innerHTML = mensaje;
 
 }
+
+function guardarRanking(){
+
+    const nombre = document.getElementById("nombreJugador").value.trim();
+
+    if(nombre === ""){
+
+        alert("Ingresá un nombre.");
+
+        return;
+
+    }
+
+    const puntaje = Number(localStorage.getItem("puntaje"));
+
+    let ranking = JSON.parse(localStorage.getItem("ranking")) || [];
+
+    ranking.push({
+
+        nombre: nombre,
+
+        puntaje: puntaje
+
+    });
+
+    ranking.sort((a,b)=>b.puntaje-a.puntaje);
+
+    ranking = ranking.slice(0,10);
+
+    localStorage.setItem("ranking",JSON.stringify(ranking));
+
+    mostrarRanking();
+
+    document.getElementById("nombreJugador").disabled=true;
+
+}
+
+function mostrarRanking(){
+
+    const contenedor=document.getElementById("ranking");
+
+    if(!contenedor) return;
+
+    const ranking=JSON.parse(localStorage.getItem("ranking"))||[];
+
+    let html="<ol class='list-group list-group-numbered'>";
+
+    ranking.forEach(function(jugador){
+
+        html+=`
+
+<li class="list-group-item d-flex justify-content-between">
+
+<span>${jugador.nombre}</span>
+
+<strong>${jugador.puntaje}</strong>
+
+</li>
+
+`;
+
+    });
+
+    html+="</ol>";
+
+    contenedor.innerHTML=html;
+
+}
+
+mostrarRanking();
