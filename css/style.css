@@ -1,0 +1,30 @@
+body{
+
+    background-color:#f8f9fa;
+
+}
+
+.card{
+
+    border:none;
+    border-radius:20px;
+
+}
+
+.card img{
+
+    margin:auto;
+
+}
+
+.btn{
+
+    border-radius:12px;
+
+}
+
+.navbar{
+
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
+
+}
